@@ -1,0 +1,160 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Maths Website</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<!--         <link rel="stylesheet" href="styling.css"> -->
+        <link rel="stylesheet"  type ="text/css" href="{{url_for('static',filename = 'styling.css')}}" >
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+     $("#gettext").click(function(){
+		event.preventDefault();
+		$("#question-box").val("John has 3 apples. Rachel gave him 4 more apples. How many apples does John have?");
+	});
+});
+    </script>
+<script>
+$(document).ready(function() {
+     $("#gettext1").click(function(){
+		event.preventDefault();
+		$("#question-box").val("Ravi distributed 12 roses between 4 students. How many roses does each student get?");
+	});
+});
+    </script>
+<script>
+$(document).ready(function() {
+     $("#gettext2").click(function(){
+		event.preventDefault();
+		$("#question-box").val("Lisa had 30 apples in the begining. She gave 20 apples to Ram . How much does Lisa have left with her ?");
+	});
+});
+    </script>
+<script>
+$(document).ready(function() {
+     $("#gettext3").click(function(){
+		event.preventDefault();
+		$("#question-box").val("In a given school , there are 260 boys and 240 girls. What is the ratio of the number of boys to number of girls ?");
+	});
+});
+    </script>
+<style>
+/* Box styles */
+.myBox {
+border: none;
+padding: 5px;
+/*font: 12px/24px sans-serif;*/
+width: 400px;
+height: 450px;
+overflow: scroll;
+margin-left: auto;
+margin-bottom: 10px;
+border-radius: 20px;
+background: #00668d;
+opacity: 0.9;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+
+
+::-webkit-scrollbar-thumb {
+background: grey;  
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: grey;  
+}
+</style>
+
+
+
+    </head>
+    
+    <body>
+
+        <div id="container" class=".container">
+            <div id="header">
+                <div id="brand">
+                    <h1 align="center">Arithmetic Word Problem Solver</h1>
+                </div>
+            </div>
+
+                        <div id="rightsidebar" class="sidebar" >
+                <div class ="myBox">
+                <h3 align="center">Example Questions :</h3>
+                <ul>
+                    <li><a href="#" class="one" id="gettext" >John has 3 apples. Rachel gave him 4 more apples. How many apples does John have ?</a></li>
+				<li><a href="#" class="one"id="gettext1" ><p>Ravi distributed 12 roses between 4 students. How many roses does each student get ?</p></a></li>
+
+				<li><a href="#" class="one" id="gettext2" ><p>Lisa had 30 apples in the begining. She gave 20 apples to Ram . How much does Lisa have left with her ?</p></a></li>
+
+                    <li><a href="#" class="one" id="gettext3" ><p>In a given school , there are 260 boys and 240 girls. What is the ratio of the number of boys to number of girls ?</p></a></li>
+
+                
+                </ul>
+              </div>
+            </div>
+            <img src = "{{url_for('static',filename = 'images/Ellips.gif')}}" id="gif" style="visibility: hidden; padding-left: 80px; padding-top: 100px;" >
+            <div id="leftsidebar" class="sidebar" >
+             <h3>Enter Word Problem :</h3>   
+         <form role="form" method='POST' id="target">
+        <div class="form-group">
+          <textarea name="question" rows="5" cols="10" class="form-control" id="question-box" placeholder="Enter Word Problem..."  required autofocus >
+          </textarea>
+          
+          <!--<input type = "text" placeholder="Enter Word Problem..." name = "question" required autofocus />-->
+        </div>
+        <input id="submitButton" value="Solve!" class="btn btn-default" type="submit">
+        <!-- <button type="submit" class="btn btn-default btn-lg" id="submitButton">Submit</button>
+ -->      </form>
+      <br>
+      {% for error in errors %}
+        <h4>{{ error }}</h4>
+      {% endfor %}
+        <div>
+          {% if results %}
+            <b><h4><p id="ques"> You Asked : <br>{{question}}</p></h4> </b>
+                <ul>
+                
+                  <b><h2><p><li id="ans">Answer: {{results}} </li> </p></h2></b>
+                  <p id="time" style="padding-top: 200px">Time Elapsed :{{time}} seconds</p>
+                </ul>
+              </table>
+            </div>
+          {% endif %}
+        </div>
+            </div>
+                        <script type="text/javascript">
+                         $('#target').submit(function(){
+                            $('#gif').css('visibility','visible');
+                            $('#ques').hide();
+                            $('#ans').hide();
+                            $('#time').hide();
+                            $('#submitButton').val('Wait till I calculate this..');
+                         });
+                         </script>
+
+            <div class="clear"></div>
+        </div> 
+    </div>
+</div>
+
+    
+    </body>
+
+</html>

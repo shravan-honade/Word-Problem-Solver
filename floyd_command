@@ -1,0 +1,19 @@
+ floyd run --mode serve --data sujit98/datasets/world-problem-dataset/1:mydata --cpu --env tensorflow-1.5
+ 
+Graph 1 demonstrates the accuracy of model on the  training dataset. The model is given 30 epochs to train.Accuracy of the model calculates to be 98.44 percent .The model seems to increase accuracy as the epochs increase.There is a significant increase from Epoch 1 to 20 taking accuracy from 25 percent to 90 percent. 
+
+
+Model learns by means of a loss function. It’s a method of evaluating how well specific algorithm models the given data. If predictions deviates too much from actual results, loss function would cough up a very large number. Gradually, with the help of some optimization function, loss function learns to reduce the error in prediction. 
+Graph 2 demonstrates the value of loss function over  30 epochs.The loss function used is categorical_crossentropy.
+Loss function from the graph seems to getting reduced over the course of epochs.
+
+
+After every epoch, your model is tested against a validation set, (or test samples), and validation loss and accuracy are calculated. These numbers tell us how good your model is at predicting outputs for inputs it has never seen before. Validation accuracy increases initially and drops as you over fit.
+Fig 3 shows Validation accuracy increasing as the epochs increases. Significant increase is seen between epochs 1 to 15 and after that improvement stabilizes and hit plateau for following epochs.
+Validation Accuracy turns out to be 92.42 percent.
+
+Fig 4 shows validation loss function over the course of 30 epochs which decreases and thus increase the validation accuracy. 
+
+
+
+
